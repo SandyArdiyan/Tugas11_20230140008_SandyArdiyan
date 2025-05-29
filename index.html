@@ -129,6 +129,17 @@
         <option value="Teknik Komputer">Teknik Komputer</option>
       </select>
 
+      <label for="angkatan">Angkatan</label>
+      <select id="angkatan">
+        <option value="">-- Pilih Angkatan --</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+      </select>
+
       <label for="tanggal">Tanggal Lahir</label>
       <input type="date" id="tanggal" />
 
@@ -149,10 +160,11 @@
         const nim = document.getElementById("nim").value.trim();
         const alamat = document.getElementById("alamat").value.trim();
         const jurusan = document.getElementById("jurusan").value;
+        const angkatan = document.getElementById("angkatan").value;
         const tanggal = document.getElementById("tanggal").value;
         const peminatan = document.querySelector('input[name="peminatan"]:checked');
 
-        if (!nama || !nim || !alamat || !jurusan || !tanggal || !peminatan) {
+        if (!nama || !nim || !alamat || !jurusan || !angkatan || !tanggal || !peminatan) {
           alert("❌ Mohon lengkapi semua data sebelum mengirim!");
           return;
         }
@@ -170,11 +182,11 @@
           "📌 Peminatan: " + peminatan.value + "\n" +
           "📌 Alamat: " + alamat + "\n" +
           "📌 Jurusan: " + jurusan + "\n" +
+          "📌 Angkatan: " + angkatan + "\n" +
           "📌 Tanggal Lahir: " + tanggalFormatted;
 
         alert(message);
 
-        // Optional: Menampilkan juga di halaman
         const hasil = `
           <strong>Data Pendaftaran:</strong><br>
           Nama: ${nama}<br>
@@ -182,6 +194,7 @@
           Peminatan: ${peminatan.value}<br>
           Alamat: ${alamat}<br>
           Jurusan: ${jurusan}<br>
+          Angkatan: ${angkatan}<br>
           Tanggal Lahir: ${tanggalFormatted}
         `;
         document.getElementById("hasilOutput").innerHTML = hasil;
